@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Products | Semi Restful Route Demo</title>
+	<style>
+		div.ct {
+			width: 970px;
+			height: 600px;
+			vertical-align: top;
+			margin: 10px auto;
+		}
+
+		table {
+			border: 3px solid blue;
+			border-radius: 2px;
+			width: 800px;
+/*			text-align: center;*/
+		}
+
+	</style>
+</head>
+<body>
+
+<!-- send all the product over, gothrough the list of product and print out the product info that linked by id -->
+
+
+	<div class="ct">
+	<div id = "index"></div>
+	<!-- use javascript (Ansynchronous SML request to pull something in) -->
+	<div id = "show"></div>
+	<!-- use javascript (Ansynchronous SML request to pull something in) -->
+	<div id="newform" ></div>
+	<!-- use javascript (Ansynchronous SML request to pull something in) -->
+	<div id="edit" ></div>
+		<h1>Products</h1>
+		<div>
+			<table>
+				<thead>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</thead>
+				<tbody>
+				<!-- write a loop here  -->
+				{% for product in products %}
+					<tr>
+						<td>{{ product.id }}</td>
+						<td>{{ product.product_name }}</td>
+						<td>{{ product.product_desc }}</td>
+						<td>{{ product.product_pc }}</td>
+						<td><a href="{% url 'show' id = {{ product.id }} %}">Show</a> | <a href="{% url 'edit' id= {{ product.id }} %}">Edit</a> | <a href="{% url 'destroy' id = {{ product.id }} %}">Remove</a></td>
+					</tr>
+
+				{% endfor %}
+				<!-- end a loop here -->
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url 'new' %}">Add a new product</a>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Users</title>
+</head>
+<body>
+ 	<div class="ct"> 	
+	 	<h1>All Users</h1>
+		 	<p>WELCOME {{ request.session.act_user }} | <a href="users/edit/{{ request.session.id }}">Profile</a></p>
+		 	<table>
+		 		<thead>
+		 			<th>ID</th>
+		 			<th>Name</th>
+		 			<th>email</th>
+		 			<th>created_at</th>
+		 			<th>user_level</th>
+		 		</thead>
+		 		<tbody>
+		 			<!-- data start here -->
+		 			{% for user in users %}
+		 			<tr>
+		 				<td>{{ user.id }}</td>
+		 				<td><a href="users/show/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a></td>
+		 				<td>{{ user.email }}</td>
+		 				<td>{{ user.created_at }}</td>
+		 				<td>Normal</td>
+		 			</tr>
+		 			{% endfor %}
+		 			<!-- end data here -->
+		 		</tbody>
+		 	</table>
+		 	<a href="{% url 'signout' %}">Log off</a>
+ 	</div>
+</body>
+</html>

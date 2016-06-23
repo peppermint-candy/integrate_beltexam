@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Products | Semi Restful Route Demo</title>
+	<style>
+		div.ct {
+			width: 970px;
+			height: 600px;
+			vertical-align: top;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<h1>Edit Product</h1> <!-- add product id or name here -->
+		<form>
+			<p>Name</p>
+			<input type="text" name="editName">
+			<p>Description</p>
+			<input type="text" name="editDesc">
+			<p>Price</p>
+			<input type="text" name="editPrice">
+			<br>
+			<input type="submit" value="Update">
+		</form>
+		<p><a href="{% url 'show' id=1 %}">Show</a> | <a href="{% url 'main' %}">Back</a></p>
+	</div>
+
+</body>
+</html>

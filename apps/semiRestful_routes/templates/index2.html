@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript"></script>
+	<script>
+		$(document).ready(() {
+		function)() {
+			$.ajax() {
+				url: "/products",
+				method: "get",
+
+				//success syas: do stuff with whatever comes back!
+				success: function (data) {
+					console.log(data);
+					$('#index').html(data)
+				}
+			} 
+		)
+		}
+		}
+
+		loadIndex():
+		$('form').submit(function(e) {
+			e. preventDefault():
+			//the above statement keeps the page from reloading
+			var submitType = 'post';
+			if ($(this).attr('method') == 'patch'){
+				submitType = 'patch'
+			}
+			$.ajax({
+				url:$(this).attr('action'),
+				method: submitType,
+				data: {
+					csrfmiddlewaretoken: = '{{ csrf_token }}'
+					moredata: $(this).serialize()
+				}
+			success:functoin(data) {
+				console.log(data);
+				loadIndex();
+				//when we get that information back just reload this whole page
+				// equivalent to the serverside redirect to whatever method you want
+			}
+			})
+		})
+
+// you have to DISCARD CSRF TOKEN!!!!!!!!!!!
+	</script>
+</head>
+<body>
+<!-- expect to see 4 empty divs when first start the main page cuz we haven't write any jquery to have it load -->
+<div class="ct">
+	<div id = "index"></div>
+	<!-- use javascript (Ansynchronous SML request to pull something in) -->
+	<div id = "show"></div>
+	<!-- use javascript (Ansynchronous SML request to pull something in) -->
+	<div id="newform" ></div>
+	<!-- use javascript (Ansynchronous SML request to pull something in) -->
+	<div id="edit" ></div>
+</div>
+</body>
+</html>

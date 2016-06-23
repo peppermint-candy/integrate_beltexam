@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="ct">
+	<h1>Register</h1>
+	<form action="{% url 'proregist' %}" method="post">
+	{% csrf_token %}
+		{{ regForm.as_p }}
+		<input type="submit" value="Register">
+		
+	</form>
+	<a href="{% url 'userlogin' %}">Already have an account? Login</a>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'  %}">
+</head>
+<body>
+	<div class="ct">
+		<div>
+			<h2>Sign in</h2>
+			<form action="{% url 'prologin' %}" method="post">
+			{% csrf_token %}
+				{{ loginForm.as_p }}
+				<input type="submit" value="Sign In">
+			</form>	
+
+			<a href="{% url 'userregist' %}">Don't have an account? Register.</a>>
+		</div>
+	</div>
+
+</body>
+</html>

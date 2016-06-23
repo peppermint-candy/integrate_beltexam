@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="ct">
+	<a href="{% url 'signout' %}">Log off</a>
+		<h1>Edit Profile</h1>
+		<fieldset>
+			<legend>Edit Information</legend>
+			<form action="/userdash/users/edit/{{ users.id}}/process" method="POST">
+			{% csrf_token %}
+				{{ editEmail.as_p }}
+				<input type="submit" value="Save">
+			</form>
+		</fieldset>
+		<fieldset>
+			<legend>Change Password</legend>
+			<form action="/userdash/users/edit/{{ users.id}}/process" method="POST">
+			{% csrf_token %}
+				{{ changePw.as_p }}
+				<input type="submit" Value="Update Password">
+			</form>
+		</fieldset>
+
+	</div>
+	
+
+</body>
+</html>

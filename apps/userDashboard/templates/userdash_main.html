@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test App</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static '../css/style.css' %}">
+
+</head>
+<body>
+	<div class="ct">
+		<div class="header">
+			<h1>Welcome to the Test</h1>
+			<p>We're going to build a cool application using a MVC framework! This application was built with the Village88 folks!</p>
+
+			<form action="{% url 'userlogin' %}" method="post">
+			{% csrf_token %}			
+				<input type="submit" value="Start" >
+			</form>
+		</div>
+		<div class="bottom">
+			<div class="body">
+			</div>
+			<div class="body"></div>
+			<div class="body"></div>
+		</div>
+	</div>
+	
+
+</body>
+</html>
